@@ -2,8 +2,12 @@ import express from "express";
 import colors from "colors";
 import dotenv from "dotenv";
 import cors from "cors";
-import productCategory from "./routes/productCategory.js";
+import productCategoryRoute from "./routes/productCategoryRoute.js";
+import productBrandRoute from "./routes/productBrandRoute.js";
+import productTagRoute from "./routes/productTagRoute.js";
+import productRoute from "./routes/productRoute.js";
 import mongoDBConnect from "./config/db.js";
+import { errorHandle } from "./middlewares/errorHandler.js";
 
 // init express
 const app = express();
@@ -18,10 +22,16 @@ app.use(cors());
 app.use(express.static("/api/public"));
 
 // routes
-app.use("/api/v1/product", productCategory);
+app.use("/api/v1/product", productRoute);
+app.use("/api/v1/product", productCategoryRoute);
+app.use("/api/v1/product", productBrandRoute);
+app.use("/api/v1/product", productTagRoute);
 
 // server port
 const PORT = process.env.PORT || 5056;
+
+// error handler
+app.use(errorHandle);
 
 app.listen(PORT, () => {
   mongoDBConnect();
