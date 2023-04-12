@@ -1,0 +1,41 @@
+.modal-shop {
+  background-color: rgb(44 42 42 / 52%);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 9999;
+  .modal-wraper-shop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .modal-popup-shop {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+      border-radius: 10px;
+      .modal-header-shop {
+        position: relative;
+        button {
+          position: absolute;
+          right: 0px;
+          transform: translate(14px, -20px);
+          padding: 0px;
+          border-radius: 7px;
+          font-size: 24px;
+          width: 40px;
+          height: 40px;
+          background-color: #0da487;
+
+          border: none;
+          svg {
+            filter: invert(1);
+          }
+        }
+      }
+    }
+  }
+}
